@@ -27,6 +27,23 @@ async function renderArticles() {
     container.appendChild(div);
   });
 }
+async function renderArticles() {
+  const articles = await getArticles();
+  const container = document.getElementById("articleList");
+  container.innerHTML = "";
+  articles.forEach(a => {
+    const flags = getFlags(a.updatedAt);
+    const badge = renderBadge(flags);
+    const div = document.createElement("div");
+    div.className = "card";
+    div.innerHTML = `
+      <h2><a href="${a.link}">${a.title}</a> ${badge}</h2>
+      <p style="font-size: 0.9rem; color: #aaa;">${a.category} · ${a.updatedAt}</p>
+      <p>${a.chapter}</p>
+    `;
+    container.appendChild(div);
+  });
+}
 async function renderCategories() {
   const articles = await getArticles();
   const container = document.getElementById("categoryList");
@@ -97,7 +114,7 @@ async function renderArticles() {
 
     const div = document.createElement("div");
     div.className = "card";
-    div.innerHTML = `<h2><a href="${a.link}">${a.title}</a> ${badge}</h2><p>${a.summary}</p>`;
+    div.innerHTML = `<h2><a href="${a.link}">${a.title}</a> ${badge}</h2><p>${a.chapter}</p>`;
     container.appendChild(div);
   });
 }
@@ -117,3 +134,11 @@ function renderBadge(flags) {
   if (flags.isUpdated) return `<span class="badge updated">Updated</span>`;
   return "";
 }
+const chapter = a.chapter || "（尚未提供摘要）";
+const category = a.category || "未分類";
+const updatedAt = a.updatedAt || "未提供日期";
+div.innerHTML = `
+  <h2><a href="${a.link}">${a.title}</a> ${badge}</h2>
+  <p style="font-size: 0.9rem; color: #aaa;">${category} · ${updatedAt}</p>
+  <p>${chapter}</p>
+`;
