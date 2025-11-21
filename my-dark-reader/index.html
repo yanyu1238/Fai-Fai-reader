@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+  <meta charset="UTF-8">
+  <title>Fai-Fai Reader</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="navbar">
+    <div class="nav-container">
+      <h1>📚 Fai-Fai Reader</h1>
+      <button id="menuToggle">☰</button>
+      <nav id="mainNav" class="collapsed">
+        <a href="index.html">首頁</a>
+        <a href="category.html">分類</a>
+        <a href="search.html">搜索</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="articleList">
+    <!-- 文章列表由 script.js 動態載入 -->
+  </main>
+
+  <footer>
+    <p>© 2025 by SYY</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    renderArticles();
+
+    // 高亮當前頁面
+    document.querySelectorAll("nav a").forEach(link => {
+      if (link.href === window.location.href) {
+        link.classList.add("active");
+      }
+    });
+
+    // 漢堡選單切換
+    document.getElementById("menuToggle").onclick = () => {
+      document.getElementById("mainNav").classList.toggle("collapsed");
+    };
+  </script>
+</body>
+</html>
