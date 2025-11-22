@@ -193,10 +193,9 @@ nav a.active {
   border-radius: 50%;
   background: #2b7cff; /* 主色 */
   color: #fff;
-  font-size: 22px;
-  font-weight: bold;
-  text-align: center;
-  line-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
   box-shadow: 0 6px 16px rgba(0,0,0,0.2);
   transition: transform 0.3s ease, background 0.3s ease, opacity 0.3s ease;
@@ -214,3 +213,9 @@ nav a.active {
   background: #1147a6; /* hover 深藍 */
   transform: scale(1.1);
 }
+
+.back-to-top svg {
+  width: 22px;
+  height: 22px;
+}
+
