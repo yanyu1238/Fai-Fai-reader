@@ -184,3 +184,33 @@ nav a.active {
   height: 200%;
   opacity: 0;
 }
+.back-to-top {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #2b7cff; /* 主色 */
+  color: #fff;
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 48px;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease, background 0.3s ease, opacity 0.3s ease;
+  z-index: 1000;
+  opacity: 0; /* 預設隱藏 */
+  pointer-events: none;
+}
+
+.back-to-top.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.back-to-top:hover {
+  background: #1147a6; /* hover 深藍 */
+  transform: scale(1.1);
+}

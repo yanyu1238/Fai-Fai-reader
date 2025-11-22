@@ -142,3 +142,20 @@ div.innerHTML = `
   <p style="font-size: 0.9rem; color: #aaa;">${category} · ${updatedAt}</p>
   <p>${chapter}</p>
 `;
+// 返回頂部按鈕功能
+const backToTopBtn = document.getElementById('backToTop');
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 300) {
+    backToTopBtn.classList.add('show');
+  } else {
+    backToTopBtn.classList.remove('show');
+  }
+});
+
+backToTopBtn.addEventListener('click', () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+});
